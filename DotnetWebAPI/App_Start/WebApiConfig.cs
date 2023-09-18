@@ -31,7 +31,10 @@ namespace DotnetWebAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-           // config.Services.Replace(typeof(IHttpControllerSelector), new CustomSelectorController(config));
+             config.Services.Replace(typeof(IHttpControllerSelector), new CustomSelectorController(config));
+            // returns only json
+            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
         }
     }
 }

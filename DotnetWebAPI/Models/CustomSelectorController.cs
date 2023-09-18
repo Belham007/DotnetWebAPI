@@ -27,13 +27,13 @@ namespace DotnetWebAPI.Models
             var controllerName = routeData.Values["controller"].ToString();
             string apiVersion = "1";
             //get querystring from the URI
-            /*  var versionQueryString = HttpUtility.ParseQueryString(request.RequestUri.Query);
+             /* var versionQueryString = HttpUtility.ParseQueryString(request.RequestUri.Query);
               if (versionQueryString["version"] != null)
               {
                   apiVersion = Convert.ToString(versionQueryString["version"]);
               }*/
             //get Header
-            /* string customHeaderForVersion = "X-Employee-Version";
+           /*  string customHeaderForVersion = "X-Employee-Version";
              if (request.Headers.Contains(customHeaderForVersion))
              {
                  apiVersion = request.Headers.GetValues(customHeaderForVersion).FirstOrDefault();
@@ -50,7 +50,7 @@ namespace DotnetWebAPI.Models
                 //Get the first value of version from the Accept Header Parameter
                 apiVersion = acceptHeader.First().Parameters.First(x => x.Name.ToLower() == "version").Value;
             }
-
+            
             if (apiVersion == "1")
             {
                 controllerName = controllerName + "V1";

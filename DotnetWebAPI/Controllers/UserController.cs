@@ -23,6 +23,9 @@ namespace DotnetWebAPI.Controllers
                    new Person{ID = 2, FirstName = "Bill", LastName = "Gates"}
                    };
             return Ok(people);
+
+           // return NotFound();
+         //   return StatusCode(HttpStatusCode.Unauthorized);
         }
 
         [Authorize]
